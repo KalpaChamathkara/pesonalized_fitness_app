@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:pesonalized_fitness_app/screens/loading_screen1.dart';
 
@@ -5,10 +7,11 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  // ignore: library_private_types_in_public_api
+  _splashScreenState createState() => _splashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _splashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();

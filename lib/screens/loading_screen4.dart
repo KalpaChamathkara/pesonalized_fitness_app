@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen1.dart';
+import 'package:pesonalized_fitness_app/screens/sign_up_screen.dart';
 
 // Loading Screen 4
 class LoadingScreen4 extends StatefulWidget {
+  const LoadingScreen4({super.key});
+
   @override
   _LoadingScreen4State createState() => _LoadingScreen4State();
 }
@@ -80,12 +82,12 @@ class _LoadingScreen4State extends State<LoadingScreen4>
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const LoadingScreen1()),
+                  MaterialPageRoute(builder: (context) => const SignUpPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent, // Button background
+                backgroundColor: const Color.fromARGB(
+                    255, 184, 183, 238), // Button background
                 foregroundColor: Colors.white, // Button text color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20), // Rounded corners

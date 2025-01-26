@@ -86,7 +86,8 @@ class _LoadingScreen1State extends State<LoadingScreen1>
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent, // Button background
+                backgroundColor: const Color.fromARGB(
+                    255, 184, 183, 238), // Button background
                 foregroundColor: Colors.white, // Button text color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20), // Rounded corners

@@ -81,11 +81,13 @@ class _LoadingScreen3State extends State<LoadingScreen3>
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoadingScreen4()),
+                  MaterialPageRoute(
+                      builder: (context) => const LoadingScreen4()),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent, // Button background
+                backgroundColor: const Color.fromARGB(
+                    255, 184, 183, 238), // Button background
                 foregroundColor: Colors.white, // Button text color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20), // Rounded corners

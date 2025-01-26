@@ -6,6 +6,7 @@ class LoadingScreen2 extends StatefulWidget {
   const LoadingScreen2({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoadingScreen2State createState() => _LoadingScreen2State();
 }
 
@@ -86,7 +87,8 @@ class _LoadingScreen2State extends State<LoadingScreen2>
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent, // Button background
+                backgroundColor: const Color.fromARGB(
+                    255, 184, 183, 238), // Button background
                 foregroundColor: Colors.white, // Button text color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20), // Rounded corners

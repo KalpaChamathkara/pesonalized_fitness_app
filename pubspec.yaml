@@ -14,8 +14,6 @@ dependencies:
 
   intl: ^0.20.2
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
@@ -29,10 +27,15 @@ flutter:
   assets:
     - assets/images/facebookbtn.png
     - assets/images/googelbtn.png
+    - assets/images/appLogo.png
     - assets/fonts/Poppins-Thin.ttf
     - assets/fonts/Poppins-Light.ttf
     - assets/fonts/Poppins-MediumItalic.ttf
     - assets/fonts/Poppins-SemiBold.ttf
+    - assets/fonts/Montserrat-Regular.ttf
+    - assets/fonts/Montserrat-Medium.ttf
+    - assets/fonts/Montserrat-SemiBold.ttf
+    - assets/fonts/Montserrat-Bold.ttf
 
   fonts:
     - family: Poppins
@@ -42,3 +45,11 @@ flutter:
         - asset: assets/fonts/Poppins-MediumItalic.ttf
         - asset: assets/fonts/Poppins-SemiBold.ttf
         - asset: assets/fonts/Poppins-Black.ttf
+
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat-ExtraBold.ttf

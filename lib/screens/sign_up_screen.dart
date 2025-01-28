@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen1.dart';
 import 'package:pesonalized_fitness_app/screens/sing_in_screen.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -157,7 +156,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 144, 142, 235),
+                        backgroundColor:
+                            const Color.fromARGB(255, 144, 142, 235),
                         padding: const EdgeInsets.symmetric(vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -295,10 +295,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                         Image.asset(
-                          'assets/images/facebookbtn.png',
+                          'assets/images/appLogo.png',
                           width: 60,
                           height: 60,
-                          color: Colors.white,
                         ),
                       ],
                     ),

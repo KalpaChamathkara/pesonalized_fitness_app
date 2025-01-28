@@ -15,54 +15,80 @@ class _splashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Simulate a delay to show the splash screen
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return const LoadingScreen1(); // Replace with your home screen widget
-        }),
-      );
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo or App Icon
-            Image.asset(
-              'assets/logo.png', // Place your app logo in the assets folder
-              width: 150,
-              height: 150,
-            ),
-            const SizedBox(height: 20),
-            // App Name
-            const Text(
-              'FitTrack',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Center content with logo and text
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Logo or App Icon
+                  Image.asset(
+                    'assets/images/appLogo.png', // Place your app logo in the assets folder
+                    width: 300,
+                    height: 300,
+                  ),
+                  const SizedBox(height: 10),
+                  // Tagline or slogan
+                  const Text(
+                    'Your Personalized Fitness Journey',
+                    style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 20,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 10),
-            // Tagline or slogan
-            const Text(
-              'Your Personalized Fitness Journey',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w300,
-                color: Colors.black54,
+          ),
+          // Navigate button at the bottom
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LoadingScreen1()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(
+                    255, 184, 183, 238), // Button background
+                foregroundColor: Colors.white, // Button text color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20), // Rounded corners
+                ),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15), // Adjusted padding
+              ),
+              child: const SizedBox(
+                width: double.infinity, // Button spans the width of the screen
+                child: Text(
+                  'Get Started',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(height: 40),
-          ],
-        ),
+          ),
+          const SizedBox(height: 30), // Add some spacing at the bottom
+        ],
       ),
     );
   }

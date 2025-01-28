@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sign_up_screen.dart';
-import 'package:pesonalized_fitness_app/screens/forget_password_screen.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _SignInPageState createState() => _SignInPageState();
+  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
-
-  // Controllers for input fields
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,66 +39,13 @@ class _SignInPageState extends State<SignInPage> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(height: 15),
-
-                    // Password Field
-                    _buildTextField(
-                      controller: _passwordController,
-                      label: 'Password',
-                      icon: Icons.lock_outline,
-                      obscureText: _obscurePassword,
-                      textStyle: const TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _obscurePassword = !_obscurePassword;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-
-                    // Forgot Password Link
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const ForgotPasswordPage()),
-                          );
-                        },
-                        child: const Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 14,
-                            color: Color.fromARGB(255, 144, 142, 235),
-                          ),
-                        ),
-                      ),
-                    ),
                     const SizedBox(height: 20),
 
-                    // Sign In Button
+                    // Reset Password Button
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUpPage()),
-                          );
+                          // Handle forgot password functionality here
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -118,7 +57,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       child: const Text(
-                        'SIGN IN',
+                        'RESET PASSWORD',
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 18,
@@ -127,55 +66,16 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
 
-                    // OR Divider
-                    const Row(
-                      children: [
-                        Expanded(
-                          child: Divider(color: Colors.grey, thickness: 1),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('or'),
-                        ),
-                        Expanded(
-                          child: Divider(color: Colors.grey, thickness: 1),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Google and Facebook Buttons
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Image.asset('assets/images/googelbtn.png'),
-                          iconSize: 40.0,
-                          onPressed: () {
-                            // Google sign-in functionality
-                          },
-                        ),
-                        const SizedBox(width: 20),
-                        IconButton(
-                          icon: Image.asset('assets/images/facebookbtn.png'),
-                          iconSize: 40.0,
-                          onPressed: () {
-                            // Facebook sign-in functionality
-                          },
-                        ),
-                      ],
-                    ),
                     const SizedBox(height: 30),
 
-                    // Don't have an Account? Sign Up
+                    // Back to Sign In
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            "Don't have an Account? ",
+                            'Remember your password? ',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -185,12 +85,8 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           OutlinedButton(
                             onPressed: () {
-                              // Navigate to Sign Up page
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpPage()),
-                              );
+                              // Navigate back to Sign In page
+                              Navigator.pop(context);
                             },
                             style: OutlinedButton.styleFrom(
                               backgroundColor: Colors.white,
@@ -202,7 +98,7 @@ class _SignInPageState extends State<SignInPage> {
                                   horizontal: 10, vertical: 5),
                             ),
                             child: const Text(
-                              'Sign Up',
+                              'Sign In',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 16,
@@ -221,22 +117,20 @@ class _SignInPageState extends State<SignInPage> {
             ),
 
             // Sticky Header
-            // Sticky Header
             Positioned(
               top: 0,
               left: 0,
               right: 0,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                color: const Color.fromARGB(
-                    255, 144, 142, 235), // Light blue background
-                child: Column(
+                color: const Color.fromARGB(255, 144, 142, 235),
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'Fitness',
                           style: TextStyle(
                             fontFamily: "Poppins",
@@ -245,16 +139,11 @@ class _SignInPageState extends State<SignInPage> {
                             color: Colors.white,
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/appLogo.png',
-                          width: 60,
-                          height: 60,
-                        ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Sign In',
+                    SizedBox(height: 10),
+                    Text(
+                      'Forgot Password',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -278,7 +167,6 @@ class _SignInPageState extends State<SignInPage> {
     required String label,
     required IconData icon,
     bool obscureText = false,
-    Widget? suffixIcon,
     TextInputType keyboardType = TextInputType.text,
     TextStyle? textStyle,
   }) {
@@ -290,7 +178,6 @@ class _SignInPageState extends State<SignInPage> {
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon),
-        suffixIcon: suffixIcon,
         filled: true,
         fillColor: const Color.fromARGB(255, 236, 235, 253),
         border: OutlineInputBorder(
@@ -302,7 +189,11 @@ class _SignInPageState extends State<SignInPage> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter $label';
+          return 'Please enter your email';
+        }
+        if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\$")
+            .hasMatch(value)) {
+          return 'Please enter a valid email';
         }
         return null;
       },

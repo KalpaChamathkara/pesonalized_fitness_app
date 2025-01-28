@@ -5,6 +5,7 @@ class LoadingScreen1 extends StatefulWidget {
   const LoadingScreen1({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoadingScreen1State createState() => _LoadingScreen1State();
 }
 
@@ -102,8 +103,9 @@ class _LoadingScreen1State extends State<LoadingScreen1>
                   'Next',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: "Poppins",
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

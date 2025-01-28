@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'verification_code_screen.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
@@ -42,10 +44,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     const SizedBox(height: 20),
 
                     // Reset Password Button
+                    // Reset Password Button
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
-                          // Handle forgot password functionality here
+                          // Navigate to the Verification Code Screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const VerificationCodeScreen(),
+                            ),
+                          );
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -131,11 +141,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          'Fitness',
+                          'GORDON',
                           style: TextStyle(
-                            fontFamily: "Poppins",
+                            fontFamily: "Montserrat",
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
                         ),
@@ -187,6 +197,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         labelStyle: textStyle,
         hintStyle: textStyle,
       ),
+      /*
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter your email';
@@ -196,7 +207,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           return 'Please enter a valid email';
         }
         return null;
-      },
+      },*/
     );
   }
 }

@@ -87,7 +87,7 @@ class _SignInPageState extends State<SignInPage> {
                           );
                         },
                         child: const Text(
-                          'Forgot Password?',
+                          'Forgot Password ?',
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 14,
@@ -237,11 +237,11 @@ class _SignInPageState extends State<SignInPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text(
-                          'Fitness',
+                          'GORDON',
                           style: TextStyle(
-                            fontFamily: "Poppins",
+                            fontFamily: "Montserrat",
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
                         ),

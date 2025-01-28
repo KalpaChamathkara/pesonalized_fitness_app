@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sing_in_screen.dart';
+import 'package:pesonalized_fitness_app/screens/sign_in_screen.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpPageState createState() => _SignUpPageState();
 }
 
@@ -286,11 +287,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Text(
-                          'Fitness',
+                          'GORDON',
                           style: TextStyle(
-                            fontFamily: "Poppins",
+                            fontFamily: "Montserrat",
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
                         ),

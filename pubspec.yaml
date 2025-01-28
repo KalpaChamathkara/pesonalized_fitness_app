@@ -28,6 +28,12 @@ flutter:
     - assets/images/facebookbtn.png
     - assets/images/googelbtn.png
     - assets/images/appLogo.png
+
+    - assets/images/screen1.jpg
+    - assets/images/screen2.jpg
+    - assets/images/screen3.jpg
+    - assets/images/screen4.jpg
+
     - assets/fonts/Poppins-Thin.ttf
     - assets/fonts/Poppins-Light.ttf
     - assets/fonts/Poppins-MediumItalic.ttf

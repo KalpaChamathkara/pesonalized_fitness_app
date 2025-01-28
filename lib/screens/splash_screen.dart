@@ -65,7 +65,7 @@ class _splashScreenState extends State<SplashScreen> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(
-                    255, 184, 183, 238), // Button background
+                    255, 144, 142, 235), // Button background
                 foregroundColor: Colors.white, // Button text color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20), // Rounded corners
@@ -80,7 +80,7 @@ class _splashScreenState extends State<SplashScreen> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

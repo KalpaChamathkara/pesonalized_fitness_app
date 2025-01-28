@@ -6,6 +6,7 @@ class LoadingScreen3 extends StatefulWidget {
   const LoadingScreen3({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoadingScreen3State createState() => _LoadingScreen3State();
 }
 
@@ -49,7 +50,7 @@ class _LoadingScreen3State extends State<LoadingScreen3>
                   FadeTransition(
                     opacity: _fadeInAnimation,
                     child: Image.asset(
-                      'assets/images/loading1.png',
+                      'assets/images/screen1.jpg',
                       width: 180,
                       height: 180,
                     ),
@@ -59,12 +60,13 @@ class _LoadingScreen3State extends State<LoadingScreen3>
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
-                      'Track your progress and achieve your fitness goals effortlessly!- p3',
+                      'Stay motivated with daily reminders and progress insights !',
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontFamily: "Poppins",
                         fontSize: 22,
                         color: Color.fromARGB(255, 56, 56, 56),
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w300,
                         height: 1.5, // Better line spacing
                       ),
                     ),

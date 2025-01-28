@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen1.dart';
-import 'package:pesonalized_fitness_app/screens/sing_in_screen.dart';
+import 'package:pesonalized_fitness_app/screens/sign_up_screen.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
 
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  // ignore: library_private_types_in_public_api
+  _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
 
   // Controllers for input fields
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _dobController = TextEditingController();
-  String _selectedGender = 'Male';
 
   bool _obscurePassword = true;
-  bool _obscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -35,27 +28,12 @@ class _SignUpPageState extends State<SignUpPage> {
             // Main content with scrolling
             SingleChildScrollView(
               padding: const EdgeInsets.only(top: 180, left: 20, right: 20),
-              // Adjust top padding to fit sticky header
               child: Form(
                 key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 20),
-
-                    // Name Field
-                    _buildTextField(
-                      controller: _nameController,
-                      label: 'Name',
-                      icon: Icons.person_outline,
-                      textStyle: const TextStyle(
-                        fontFamily: 'Poppins',
-                        // Specify the Poppins font family
-                        fontWeight: FontWeight
-                            .w400, // Apply desired font weight (e.g., 600 for semi-bold)
-                      ),
-                    ),
-                    const SizedBox(height: 15),
 
                     // Email Field
                     _buildTextField(
@@ -65,18 +43,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       keyboardType: TextInputType.emailAddress,
                       textStyle: const TextStyle(
                         fontFamily: 'Poppins',
-                        // Specify the Poppins font family
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(height: 15),
-
-                    //Gender Dropdown
-                    _buildDropdownField(),
-                    const SizedBox(height: 15),
-
-                    // DOB Field
-                    _buildDateField(),
                     const SizedBox(height: 15),
 
                     // Password Field
@@ -84,13 +53,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller: _passwordController,
                       label: 'Password',
                       icon: Icons.lock_outline,
+                      obscureText: _obscurePassword,
                       textStyle: const TextStyle(
                         fontFamily: 'Poppins',
-                        // Specify the Poppins font family
-                        fontWeight: FontWeight
-                            .w400, // Apply desired font weight (e.g., 600 for semi-bold)
+                        fontWeight: FontWeight.w400,
                       ),
-                      obscureText: _obscurePassword,
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword
@@ -104,67 +71,45 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
 
-                    // Confirm Password Field
-                    _buildTextField(
-                      controller: _confirmPasswordController,
-                      label: 'Confirm Password',
-                      icon: Icons.lock_outline,
-                      textStyle: const TextStyle(
-                        fontFamily: 'Poppins',
-                        // Specify the Poppins font family
-                        fontWeight: FontWeight
-                            .w400, // Apply desired font weight (e.g., 600 for semi-bold)
-                      ),
-                      obscureText: _obscureConfirmPassword,
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureConfirmPassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                        ),
+                    // Forgot Password Link
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
                         onPressed: () {
-                          setState(() {
-                            _obscureConfirmPassword = !_obscureConfirmPassword;
-                          });
+                          // Add Forgot Password functionality
                         },
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 144, 142, 235),
+                          ),
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 20),
 
-                    // Phone Field
-                    _buildTextField(
-                      controller: _phoneController,
-                      label: 'Phone',
-                      icon: Icons.phone_outlined,
-                      textStyle: const TextStyle(
-                        fontFamily: 'Poppins',
-                        // Specify the Poppins font family
-                        fontWeight: FontWeight
-                            .w400, // Apply desired font weight (e.g., 600 for semi-bold)
-                      ),
-                      keyboardType: TextInputType.phone,
-                    ),
-                    const SizedBox(height: 30),
-
-                    // Sign Up Button
+                    // Sign In Button
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
-                          // Handle sign-up functionality here
+                          // Handle sign-in functionality here
                           {}
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 144, 142, 235),
+                        backgroundColor:
+                            const Color.fromARGB(255, 144, 142, 235),
                         padding: const EdgeInsets.symmetric(vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: const Text(
-                        'SIGN UP',
+                        'SIGN IN',
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 18,
@@ -200,7 +145,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           icon: Image.asset('assets/images/googelbtn.png'),
                           iconSize: 40.0,
                           onPressed: () {
-                            // Google sign-up functionality
+                            // Google sign-in functionality
                           },
                         ),
                         const SizedBox(width: 20),
@@ -208,14 +153,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           icon: Image.asset('assets/images/facebookbtn.png'),
                           iconSize: 40.0,
                           onPressed: () {
-                            // Facebook sign-up functionality
+                            // Facebook sign-in functionality
                           },
                         ),
                       ],
                     ),
                     const SizedBox(height: 30),
 
-                    // Already have an Account? Sign In
+                    // Don't have an Account? Sign Up
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -231,27 +176,24 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           OutlinedButton(
                             onPressed: () {
-                              // Add navigation to Sign In screen
+                              // Navigate to Sign Up page
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignInPage()),
+                                    builder: (context) => SignUpPage()),
                               );
                             },
                             style: OutlinedButton.styleFrom(
                               backgroundColor: Colors.white,
                               side: const BorderSide(color: Colors.white),
-                              // White border
                               shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(8), // Rounded corners
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 5), // Adjust padding as needed
+                                  horizontal: 10, vertical: 5),
                             ),
                             child: const Text(
-                              'Sign In',
+                              'Sign Up',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 16,
@@ -263,7 +205,6 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
                     ),
-
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -277,15 +218,14 @@ class _SignUpPageState extends State<SignUpPage> {
               right: 0,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                color: const Color.fromARGB(
-                    255, 144, 142, 235), // Light blue background
-                child: Column(
+                color: const Color.fromARGB(255, 144, 142, 235),
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'Fitness',
                           style: TextStyle(
                             fontFamily: "Poppins",
@@ -294,17 +234,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             color: Colors.white,
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/facebookbtn.png',
-                          width: 60,
-                          height: 60,
-                          color: Colors.white,
-                        ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Sign Up',
+                    SizedBox(height: 10),
+                    Text(
+                      'Sign In',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -330,13 +264,13 @@ class _SignUpPageState extends State<SignUpPage> {
     bool obscureText = false,
     Widget? suffixIcon,
     TextInputType keyboardType = TextInputType.text,
-    TextStyle? textStyle, // Add this parameter
+    TextStyle? textStyle,
   }) {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
-      style: textStyle, // This applies the passed textStyle
+      style: textStyle,
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon),
@@ -347,90 +281,12 @@ class _SignUpPageState extends State<SignUpPage> {
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,
         ),
-        labelStyle: textStyle, // Apply textStyle to label
-        hintStyle: textStyle, // Apply textStyle to hint text
+        labelStyle: textStyle,
+        hintStyle: textStyle,
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter $label';
-        }
-        return null;
-      },
-    );
-  }
-
-  // Widget for the dropdown field
-  Widget _buildDropdownField() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 236, 235, 253),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: DropdownButtonFormField<String>(
-        value: _selectedGender,
-        decoration: const InputDecoration(
-          labelText: 'Gender',
-          border: InputBorder.none,
-        ),
-        icon: const Icon(Icons.arrow_drop_down),
-        items: ['Male', 'Female']
-            .map((gender) => DropdownMenuItem<String>(
-                  value: gender,
-                  child: Text(gender),
-                ))
-            .toList(),
-        onChanged: (value) {
-          setState(() {
-            _selectedGender = value ?? 'Male';
-          });
-        },
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please select your gender';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-
-  // Widget for the date of birth field
-  Widget _buildDateField() {
-    return TextFormField(
-      controller: _dobController,
-      readOnly: true,
-      style: const TextStyle(
-        fontFamily: 'Poppins',
-        fontWeight: FontWeight.w400,
-      ),
-      decoration: InputDecoration(
-        labelText: 'Date of Birth',
-        prefixIcon: const Icon(Icons.calendar_today),
-        filled: true,
-        fillColor: const Color.fromARGB(255, 236, 235, 253),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
-        ),
-      ),
-      onTap: () async {
-        DateTime? pickedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(1900),
-          lastDate: DateTime.now(),
-        );
-        if (pickedDate != null) {
-          setState(() {
-            _dobController.text =
-                '${pickedDate.year}-${pickedDate.month.toString().padLeft(2, '0')}-${pickedDate.day.toString().padLeft(2, '0')}';
-          });
-        }
-      },
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please select your date of birth';
         }
         return null;
       },

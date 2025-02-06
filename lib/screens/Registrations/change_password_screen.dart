@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sign_in_screen.dart';
+import 'package:pesonalized_fitness_app/screens/Registrations/sign_in_screen.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});

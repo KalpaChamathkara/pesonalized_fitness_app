@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen1.dart';
+import 'package:pesonalized_fitness_app/screens/loading_screens/loading_screen1.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

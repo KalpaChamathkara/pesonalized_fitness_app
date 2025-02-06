@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen3.dart';
+import 'package:pesonalized_fitness_app/screens/loading_screens/loading_screen4.dart';
 
-// Loading Screen 2
-class LoadingScreen2 extends StatefulWidget {
-  const LoadingScreen2({super.key});
+// Loading Screen 3
+class LoadingScreen3 extends StatefulWidget {
+  const LoadingScreen3({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _LoadingScreen2State createState() => _LoadingScreen2State();
+  _LoadingScreen3State createState() => _LoadingScreen3State();
 }
 
-class _LoadingScreen2State extends State<LoadingScreen2>
+class _LoadingScreen3State extends State<LoadingScreen3>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeInAnimation;
@@ -50,7 +50,7 @@ class _LoadingScreen2State extends State<LoadingScreen2>
                   FadeTransition(
                     opacity: _fadeInAnimation,
                     child: Image.asset(
-                      'assets/images/screen2.jpg',
+                      'assets/images/screen1.jpg',
                       width: 180,
                       height: 180,
                     ),
@@ -60,7 +60,7 @@ class _LoadingScreen2State extends State<LoadingScreen2>
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
-                      'Personalized workout plans tailored just for you !',
+                      'Stay motivated with daily reminders and progress insights !',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "Poppins",
@@ -84,7 +84,7 @@ class _LoadingScreen2State extends State<LoadingScreen2>
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const LoadingScreen3()),
+                      builder: (context) => const LoadingScreen4()),
                 );
               },
               style: ElevatedButton.styleFrom(

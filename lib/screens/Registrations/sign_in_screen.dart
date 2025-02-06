@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sign_up_screen.dart';
-import 'package:pesonalized_fitness_app/screens/forget_password_screen.dart';
+import 'package:pesonalized_fitness_app/screens/Registrations/sign_up_screen.dart';
+import 'package:pesonalized_fitness_app/screens/Registrations/forget_password_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});

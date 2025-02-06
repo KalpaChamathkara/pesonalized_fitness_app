@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sign_up_screen.dart';
+import 'package:pesonalized_fitness_app/screens/loading_screens/loading_screen3.dart';
 
-// Loading Screen 4
-class LoadingScreen4 extends StatefulWidget {
-  const LoadingScreen4({super.key});
+// Loading Screen 2
+class LoadingScreen2 extends StatefulWidget {
+  const LoadingScreen2({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _LoadingScreen4State createState() => _LoadingScreen4State();
+  _LoadingScreen2State createState() => _LoadingScreen2State();
 }
 
-class _LoadingScreen4State extends State<LoadingScreen4>
+class _LoadingScreen2State extends State<LoadingScreen2>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeInAnimation;
@@ -18,7 +18,6 @@ class _LoadingScreen4State extends State<LoadingScreen4>
   @override
   void initState() {
     super.initState();
-
     // Animation setup
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
@@ -51,7 +50,7 @@ class _LoadingScreen4State extends State<LoadingScreen4>
                   FadeTransition(
                     opacity: _fadeInAnimation,
                     child: Image.asset(
-                      'assets/images/screen4.jpg',
+                      'assets/images/screen2.jpg',
                       width: 180,
                       height: 180,
                     ),
@@ -61,7 +60,7 @@ class _LoadingScreen4State extends State<LoadingScreen4>
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
-                      'Explore healthy habits and transform your lifestyle, one step at a time !',
+                      'Personalized workout plans tailored just for you !',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "Poppins",
@@ -84,7 +83,8 @@ class _LoadingScreen4State extends State<LoadingScreen4>
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SignUpPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const LoadingScreen3()),
                 );
               },
               style: ElevatedButton.styleFrom(

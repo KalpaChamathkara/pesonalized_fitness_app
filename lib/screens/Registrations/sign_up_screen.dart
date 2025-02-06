@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/sign_in_screen.dart';
+import 'package:pesonalized_fitness_app/screens/Registrations/sign_in_screen.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

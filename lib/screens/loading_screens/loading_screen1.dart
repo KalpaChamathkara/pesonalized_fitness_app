@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pesonalized_fitness_app/screens/loading_screen2.dart';
+import 'package:pesonalized_fitness_app/screens/loading_screens/loading_screen2.dart';
 
 class LoadingScreen1 extends StatefulWidget {
   const LoadingScreen1({super.key});

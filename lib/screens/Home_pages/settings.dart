@@ -32,7 +32,7 @@ class SettingsPage extends StatelessWidget {
               style: TextStyle(
                 fontFamily: "Poppins",
                 fontSize: 16,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 color: Colors.black87,
               ),
             ),
@@ -41,19 +41,41 @@ class SettingsPage extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.notifications, color: Colors.black87),
-            title: Text("Notification Settings"),
+            title: Text("Notification Settings",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                )),
             trailing: Icon(Icons.arrow_forward_ios, size: 16),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.lock, color: Colors.black87),
-            title: Text("Privacy & Security"),
+            title: Text(
+              "Privacy & Security",
+              style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
             trailing: Icon(Icons.arrow_forward_ios, size: 16),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.info, color: Colors.black87),
-            title: Text("About App"),
+            title: Text(
+              "About App",
+              style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
             trailing: Icon(Icons.arrow_forward_ios, size: 16),
           ),
           Divider(),

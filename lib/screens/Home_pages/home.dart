@@ -74,81 +74,67 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 1,
+        backgroundColor: Colors.white,
+        elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false, // Removes back button
-        flexibleSpace:
-            _buildWelcomeSection(), // Adds welcome section inside the AppBar
       ),
       body: ListView(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         children: [
-          // Workout Categories Section
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "📂 Workout Categories",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 50, // Fixed height for better UX
-                child: SingleChildScrollView(
-                  scrollDirection:
-                      Axis.horizontal, // Enables horizontal scrolling
-                  child: Row(
-                    children: _buildHorizontalChipList(
-                      [
-                        "Strength",
-                        "Cardio",
-                        "Yoga",
-                        "HIIT",
-                        "Pilates",
-                        "CrossFit"
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
+          _buildWelcomeSection(),
+          const SizedBox(height: 15),
+          _buildSearchBar(),
+          const SizedBox(height: 20),
+
+          // Workout Categories
+          const Text(
+            "Workout Categories",
+            style: TextStyle(
+              fontFamily: "Poppins",
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
+            ),
           ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 50,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: _buildCategoryButtons([
+                  "Strength",
+                  "Cardio",
+                  "Yoga",
+                  "HIIT",
+                  "Pilates",
+                  "CrossFit"
+                ]),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // Feature Cards
           _buildFeatureCard(
-            title: "🏋️ Customizable Workouts",
-            description:
-                "Personalized plans based on your fitness level and goals.",
+            title: "🏋️ Custom Workouts",
+            description: "Personalized fitness plans tailored for you.",
             icon: Icons.fitness_center,
             onTap: () {},
           ),
-
           _buildFeatureCard(
-            title: "🥗 Daily Meal Plans",
-            description: "Meal plans to support your fitness journey.",
+            title: "🥗 Nutrition Plans",
+            description: "Healthy meal suggestions based on your goals.",
             icon: Icons.fastfood,
             onTap: () {},
           ),
           _buildFeatureCard(
-            title: "📊 Calorie & Macro Tracking",
-            description: "Monitor your calorie intake effortlessly.",
-            icon: Icons.bar_chart,
-            onTap: () {},
-          ),
-          _buildFeatureCard(
-            title: "🍽️ Recipe Suggestions",
-            description: "Healthy recipes with nutritional breakdowns.",
-            icon: Icons.restaurant_menu,
-            onTap: () {},
-          ),
-          _buildFeatureCard(
-            title: "📈 Progress Tracking",
-            description: "Track workouts, set goals, and monitor progress.",
+            title: "📊 Progress Tracker",
+            description: "Monitor progress & set achievable goals.",
             icon: Icons.track_changes,
             onTap: () {},
           ),
@@ -157,122 +143,142 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  // Welcome Section with User Avatar
   Widget _buildWelcomeSection() {
-    return const Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: 16, vertical: 10), // Add spacing
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, // Center content
-        mainAxisAlignment: MainAxisAlignment.center, // Center vertically
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 144, 142, 235),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      width: double.infinity,
+      child: const Row(
         children: [
-          Text(
-            "Welcome to Gordon Fitness App ",
-            textAlign: TextAlign.center, // Center text
-            style: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Colors.black87,
-            ),
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: AssetImage('assets/user_avatar.png'), // Add user image
           ),
-          SizedBox(height: 8),
-          Text(
-            "Your journey to a healthier life starts now!",
-            textAlign: TextAlign.center, // Center text
-            style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: Colors.black54),
+          SizedBox(width: 15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Hi, User! 👋",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                "Let's make today productive!",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white70,
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
+  //  Search Bar
+  Widget _buildSearchBar() {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: "Search workouts...",
+        prefixIcon: const Icon(Icons.search, color: Colors.grey),
+        filled: true,
+        fillColor: Colors.grey[200],
+        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+
+  // Feature Cards with Modern UI
   Widget _buildFeatureCard({
     required String title,
     required String description,
     required IconData icon,
     VoidCallback? onTap,
-    Widget? extraWidget,
   }) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(15),
-        leading: CircleAvatar(
-          backgroundColor: Colors.blueAccent,
-          child: Icon(icon, color: Colors.white),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.black87,
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 3,
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            gradient: const LinearGradient(
+              colors: [Color(0xFF908EEB), Color(0xFFB4AEE8)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(icon, color: Color.fromARGB(255, 144, 142, 235)),
+              ),
+              const SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              description,
-              style: const TextStyle(fontSize: 14, color: Colors.black54),
-            ),
-            if (extraWidget != null)
-              Padding(
-                  padding: const EdgeInsets.only(top: 5), child: extraWidget),
-          ],
-        ),
-        trailing: onTap != null
-            ? IconButton(
-                icon: const Icon(Icons.arrow_forward_ios, size: 18),
-                onPressed: onTap,
-              )
-            : null,
       ),
     );
   }
 
-  Widget _buildChipList(List<String> items) {
-    return Wrap(
-      spacing: 8,
-      children: items
-          .map((item) => Chip(
-                label: Text(
-                  item,
-                  style: const TextStyle(fontSize: 14, color: Colors.white),
-                ),
-                backgroundColor: Colors.blueAccent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ))
-          .toList(),
-    );
-  }
-
-  // Helper function to generate chips horizontally
-  List<Widget> _buildHorizontalChipList(List<String> items) {
-    return items
-        .map((item) => Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 6), // Adds spacing
-              child: Chip(
-                label: Text(
-                  item,
-                  style: const TextStyle(fontSize: 14, color: Colors.white),
-                ),
-                backgroundColor: Colors.blueAccent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ))
-        .toList();
+  // Category Buttons
+  List<Widget> _buildCategoryButtons(List<String> items) {
+    return items.map((item) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(
+                255, 184, 183, 238),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          ),
+          onPressed: () {},
+          child: Text(item),
+        ),
+      );
+    }).toList();
   }
 }

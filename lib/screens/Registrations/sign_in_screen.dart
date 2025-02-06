@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pesonalized_fitness_app/screens/Home_pages/Home.dart';
 import 'package:pesonalized_fitness_app/screens/Registrations/sign_up_screen.dart';
 import 'package:pesonalized_fitness_app/screens/Registrations/forget_password_screen.dart';
 
@@ -105,7 +106,7 @@ class _SignInPageState extends State<SignInPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignUpPage()),
+                                builder: (context) => const HomeScreen()),
                           );
                         }
                       },

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pesonalized_fitness_app/screens/Home_pages/guidance.dart';
 import 'package:pesonalized_fitness_app/screens/Home_pages/notification.dart';
 import 'package:pesonalized_fitness_app/screens/Home_pages/settings.dart';
+import 'package:pesonalized_fitness_app/screens/nutrition/mealplanpage.dart';
+import 'package:pesonalized_fitness_app/screens/workouts/workoutplanpage.dart';
+import 'package:pesonalized_fitness_app/screens/progress/progresstrackpage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -124,19 +127,36 @@ class HomePage extends StatelessWidget {
             title: "🏋️ Custom Workouts",
             description: "Personalized fitness plans tailored for you.",
             icon: Icons.fitness_center,
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const WorkoutPlansPage()),
+              );
+            },
           ),
           _buildFeatureCard(
             title: "🥗 Nutrition Plans",
             description: "Healthy meal suggestions based on your goals.",
             icon: Icons.fastfood,
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MealPlansPage()),
+              );
+            },
           ),
           _buildFeatureCard(
             title: "📊 Progress Tracker",
             description: "Monitor progress & set achievable goals.",
             icon: Icons.track_changes,
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProgressTrackingPage()),
+              );
+            },
           ),
         ],
       ),
@@ -156,7 +176,8 @@ class HomePage extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundImage: AssetImage('assets/user_avatar.png'), // Add user image
+            backgroundImage:
+                AssetImage('assets/user_avatar.png'), // Add user image
           ),
           SizedBox(width: 15),
           Column(
@@ -231,7 +252,8 @@ class HomePage extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(icon, color: Color.fromARGB(255, 144, 142, 235)),
+                child:
+                    Icon(icon, color: const Color.fromARGB(255, 144, 142, 235)),
               ),
               const SizedBox(width: 15),
               Expanded(
@@ -271,9 +293,9 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(
-                255, 184, 183, 238),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            backgroundColor: const Color.fromARGB(255, 184, 183, 238),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           ),
           onPressed: () {},
           child: Text(item),

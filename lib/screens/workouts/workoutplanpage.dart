@@ -13,7 +13,7 @@ class WorkoutPlansPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        backgroundColor: Color.fromARGB(255, 184, 183, 238),
+        backgroundColor:  const Color.fromARGB(255, 184, 183, 238),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -70,7 +70,7 @@ class WorkoutPlansPage extends StatelessWidget {
       child: ListTile(
         contentPadding: const EdgeInsets.all(15),
         leading:
-            Icon(icon, size: 40, color: Color.fromARGB(255, 144, 142, 235)),
+            Icon(icon, size: 40, color: const Color.fromARGB(255, 144, 142, 235)),
         title: Text(
           title,
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
